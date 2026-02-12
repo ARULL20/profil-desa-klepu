@@ -1,94 +1,248 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Profil Desa Klepu</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Desa Klepu</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f4f4f4;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        header {
-            background: #2E8B57;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f2f4f7;
+    color: #333;
+}
 
-        section {
-            background: white;
-            margin: 20px;
-            padding: 20px;
-            border-radius: 10px;
-        }
+/* HEADER */
+header {
+    background: linear-gradient(135deg,#2E8B57,#1e6b45);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
 
-        h2 {
-            color: #2E8B57;
-        }
-    </style>
+header h1 {
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+/* NAV */
+nav {
+    background: white;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: #2E8B57;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #1e6b45;
+}
+
+/* SECTION */
+.content-section {
+    display: none;
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: auto;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #2E8B57;
+}
+
+/* GRID DUSUN */
+.dusun-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+}
+
+.dusun-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.dusun-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.dusun-card h4 {
+    padding: 10px;
+    text-align: center;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    nav {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
+</style>
 </head>
+
 <body>
 
 <header>
     <h1>PROFIL DESA KLEPU</h1>
-    <p>Kecamatan Donorojo, Kabupaten Pacitan</p>
+    <p>Kecamatan Donorojo, Kabupaten Pacitan, Jawa Timur</p>
 </header>
 
-<section>
-    <h2>Letak Geografis</h2>
-    <p id="geografis">Loading...</p>
+<nav>
+    <a onclick="showSection('tentang')">Tentang</a>
+    <a onclick="showSection('visimisi')">Visi Misi</a>
+    <a onclick="showSection('perangkat')">Perangkat</a>
+    <a onclick="showSection('potensi')">Potensi</a>
+    <a onclick="showSection('dusun')">Dusun</a>
+</nav>
+
+<!-- TENTANG -->
+<section id="tentang" class="content-section">
+    <div class="card">
+        <h2>Letak Geografis</h2>
+        <p id="geografis">Loading...</p>
+    </div>
+
+    <div class="card">
+        <h2>Sejarah Desa</h2>
+        <p id="sejarah">Loading...</p>
+    </div>
 </section>
 
-<section>
-    <h2>Sejarah</h2>
-    <p id="sejarah">Loading...</p>
+<!-- VISI MISI -->
+<section id="visimisi" class="content-section">
+    <div class="card">
+        <h2>Visi</h2>
+        <p id="visi">Loading...</p>
+    </div>
+
+    <div class="card">
+        <h2>Misi</h2>
+        <pre id="misi"></pre>
+    </div>
 </section>
 
-<section>
-    <h2>Visi</h2>
-    <p id="visi">Loading...</p>
+<!-- PERANGKAT -->
+<section id="perangkat" class="content-section">
+    <div class="card">
+        <h2>Perangkat Desa</h2>
+        <pre id="perangkatdata">Loading...</pre>
+    </div>
+
+    <div class="card">
+        <h2>Lembaga Desa</h2>
+        <pre id="lembaga">Loading...</pre>
+    </div>
 </section>
 
-<section>
-    <h2>Misi</h2>
-    <p id="misi">Loading...</p>
+<!-- POTENSI -->
+<section id="potensi" class="content-section">
+    <div class="card">
+        <h2>Potensi SDA</h2>
+        <pre id="sda">Loading...</pre>
+    </div>
+
+    <div class="card">
+        <h2>Potensi UMKM</h2>
+        <pre id="umkm">Loading...</pre>
+    </div>
 </section>
 
-<section>
-    <h2>Perangkat Desa</h2>
-    <pre id="perangkat">Loading...</pre>
-</section>
+<!-- DUSUN -->
+<section id="dusun" class="content-section">
+    <h2 style="margin-bottom:20px;">Daftar Dusun</h2>
+    <div class="dusun-grid">
 
-<section>
-    <h2>Lembaga Desa</h2>
-    <pre id="lembaga">Loading...</pre>
-</section>
+        <!-- Contoh Dusun -->
+        <div class="dusun-card">
+            <img src="https://via.placeholder.com/400x300" alt="Dusun 1">
+            <h4>Dusun 1</h4>
+        </div>
 
-<section>
-    <h2>Potensi SDA</h2>
-    <pre id="sda">Loading...</pre>
-</section>
+        <div class="dusun-card">
+            <img src="https://via.placeholder.com/400x300" alt="Dusun 2">
+            <h4>Dusun 2</h4>
+        </div>
 
-<section>
-    <h2>Potensi UMKM</h2>
-    <pre id="umkm">Loading...</pre>
+        <!-- Nanti tambah sampai 17 -->
+    </div>
 </section>
 
 <script>
+
+/* TOGGLE SECTION */
+function showSection(id) {
+    document.querySelectorAll('.content-section')
+    .forEach(section => section.classList.remove('active'));
+
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0,0);
+}
+
+showSection('tentang');
+
+/* GOOGLE SHEET FETCH */
 fetch("https://opensheet.elk.sh/1NDp9uTYeRL4S-RYb9FgSuYom8Bm6eIOm5HHcrDkZjQY/Sheet1")
-    .then(res => res.json())
-    .then(data => {
-        data.forEach(item => {
-            document.getElementById(item.bagian).innerText = item.isi;
-        });
-    })
-    .catch(err => {
-        console.error(err);
+.then(res => res.json())
+.then(data => {
+    data.forEach(item => {
+
+        if(item.bagian === "perangkat"){
+            document.getElementById("perangkatdata").innerText = item.isi;
+        }
+        else{
+            const el = document.getElementById(item.bagian);
+            if(el){
+                el.innerText = item.isi;
+            }
+        }
+
     });
+})
+.catch(err => console.log(err));
+
 </script>
 
 </body>
