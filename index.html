@@ -77,6 +77,20 @@ nav a:hover {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
+/* 🔥 TAMBAHAN AGAR TEKS TIDAK KELUAR KOLOM */
+.card p,
+.card pre {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+}
+
+/* Tambahan keamanan jika ada kata sangat panjang */
+.card {
+    overflow: hidden;
+}
+
 h2 {
     margin-bottom: 15px;
     color: #2E8B57;
@@ -195,7 +209,6 @@ h2 {
     <h2 style="margin-bottom:20px;">Daftar Dusun</h2>
     <div class="dusun-grid">
 
-        <!-- Contoh Dusun -->
         <div class="dusun-card">
             <img src="https://via.placeholder.com/400x300" alt="Dusun 1">
             <h4>Dusun 1</h4>
@@ -206,7 +219,6 @@ h2 {
             <h4>Dusun 2</h4>
         </div>
 
-        <!-- Nanti tambah sampai 17 -->
     </div>
 </section>
 
