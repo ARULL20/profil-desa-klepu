@@ -77,18 +77,13 @@ nav a:hover {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-/* 🔥 TAMBAHAN AGAR TEKS TIDAK KELUAR KOLOM */
+/* 🔥 FIX AGAR TEKS TIDAK KELUAR */
 .card p,
 .card pre {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: pre-wrap;
     max-width: 100%;
-}
-
-/* Tambahan keamanan jika ada kata sangat panjang */
-.card {
-    overflow: hidden;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
 }
 
 h2 {
@@ -129,11 +124,31 @@ h2 {
 
 /* RESPONSIVE */
 @media(max-width:768px){
+
     nav {
         flex-wrap: wrap;
         gap: 15px;
     }
+
+    .content-section {
+        padding: 30px 15px;
+    }
+
+    .card {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .card p,
+    .card pre {
+        font-size: 14px;
+        line-height: 1.6;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        white-space: pre-wrap;
+    }
 }
+
 </style>
 </head>
 
@@ -235,7 +250,7 @@ function showSection(id) {
 
 showSection('tentang');
 
-/* GOOGLE SHEET FETCH */
+/* GOOGLE SHEET FETCH (TIDAK DIUBAH) */
 fetch("https://opensheet.elk.sh/1NDp9uTYeRL4S-RYb9FgSuYom8Bm6eIOm5HHcrDkZjQY/Sheet1")
 .then(res => res.json())
 .then(data => {
